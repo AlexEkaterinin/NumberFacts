@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Number facts</string>
+    <string name="title_main_menu">Select your number category</string>
+    <string name="button_math_name">MATH</string>
+    <string name="button_trivia_name">TRIVIA</string>
+    <string name="button_date_name">DATE</string>
+    <string name="button_year_name">YEAR</string>
+    <string name="button_search_text">GO</string>
+    <string name="hint_trivia_text">Enter your trivial number</string>
+    <string name="text_caption_of_current_number">Information about the number:</string>
+</resources>
