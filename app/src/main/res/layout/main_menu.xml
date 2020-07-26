@@ -1,51 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingTop="30dp">
+    android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="70dp"
         android:text="@string/title_main_menu"
         android:textSize="26sp"
-        android:layout_marginBottom="80dp"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="50dp"
-        android:text="@string/button_math_name"
         android:id="@+id/btnMath"
-        android:textSize="20sp"/>
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="70dp"
+        android:text="@string/button_math_name"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
+        android:background="@drawable/custom_btn_main_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnTrivia" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="50dp"
-        android:text="@string/button_trivia_name"
         android:id="@+id/btnTrivia"
-        android:textSize="20sp"/>
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="100dp"
+        android:text="@string/button_trivia_name"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimary"
+        android:background="@drawable/custom_btn_main_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="50dp"
-        android:text="@string/button_date_name"
         android:id="@+id/btnDate"
-        android:textSize="20sp"/>
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="70dp"
+        android:text="@string/button_date_name"
+        android:textColor="@color/colorPrimary"
+        android:background="@drawable/custom_btn_main_menu"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMath" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/button_year_name"
         android:id="@+id/btnYear"
-        android:textSize="20sp"/>
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="70dp"
+        android:text="@string/button_year_name"
+        android:textColor="@color/colorPrimary"
+        android:background="@drawable/custom_btn_main_menu"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnDate" />
 
-</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

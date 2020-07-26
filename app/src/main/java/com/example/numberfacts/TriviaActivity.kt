@@ -41,7 +41,7 @@ class TriviaActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         viewSearchStart()
-        var contentEdit = enterNum.text.toString()
+        val contentEdit = enterNum.text.toString()
 
         call = if (TextUtils.isEmpty(contentEdit)) {
             request.getRandomNumberNotDate("trivia")
