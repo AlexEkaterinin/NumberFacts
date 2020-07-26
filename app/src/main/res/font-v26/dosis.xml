@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <font
+        app:fontWeight="200"
+        app:fontStyle="normal"
+        app:font="@font/dosis_extralight"/>
+
+    <font
+        app:fontWeight="300"
+        app:fontStyle="normal"
+        app:font="@font/dosis_light"/>
+
+    <font
+        app:fontWeight="400"
+        app:fontStyle="normal"
+        app:font="@font/dosis_regular"/>
+
+    <fonapp
+        app:fontWeight="500"
+        app:fontStyle="normal"
+        app:font="@font/dosis_medium"/>
+
+    <fonapp
+        app:fontWeight="600"
+        app:fontStyle="normal"
+        app:font="@font/dosis_semibold"/>
+
+    <fonapp
+        app:fontWeight="700"
+        app:fontStyle="normal"
+        app:font="@font/dosis_bold"/>
+
+    <fonapp
+        app:fontWeight="800"
+        app:fontStyle="normal"
+        app:font="@font/dosis_extrabold"/>
+</font-family>

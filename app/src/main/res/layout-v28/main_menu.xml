@@ -14,7 +14,7 @@
         android:layout_marginTop="70dp"
         android:fontFamily="@font/dosis"
         android:textStyle="bold"
-        android:textFontWeight="800"
+        android:textFontWeight="600"
         android:text="@string/title_main_menu"
         android:textColor="@color/colorPrimary"
         android:textSize="30sp"
