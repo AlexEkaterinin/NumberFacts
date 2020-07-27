@@ -2,10 +2,13 @@ package com.example.numberfacts
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
 import android.text.TextUtils
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.*
+import androidx.core.widget.addTextChangedListener
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -32,6 +35,27 @@ class TriviaActivity : AppCompatActivity(), View.OnClickListener {
         currentNum = findViewById(R.id.current_number)
         progressBar = findViewById(R.id.progressBar)
         captionNum = findViewById(R.id.caption_of_current_number)
+
+        enterNum.addTextChangedListener(object : TextWatcher {
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+                val enterText: String = enterNum.text.toString()
+
+                btnSearch.setText(
+                    when(TextUtils.isEmpty(enterText)) {
+                        true -> R.string.button_search_text_empty_enter
+                        false -> R.string.button_search_text_not_empty_enter
+                    }
+                )
+            }
+        })
 
         progressBar.visibility = View.GONE
         captionNum.visibility = View.GONE

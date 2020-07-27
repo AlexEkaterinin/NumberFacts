@@ -5,7 +5,8 @@
     <string name="button_trivia_name">TRIVIA</string>
     <string name="button_date_name">DATE</string>
     <string name="button_year_name">YEAR</string>
-    <string name="button_search_text">GO</string>
+    <string name="button_search_text_empty_enter">RANDOM</string>
+    <string name="button_search_text_not_empty_enter">GO</string>
     <string name="hint_trivia_text">Enter your trivial number</string>
     <string name="text_caption_of_current_number">Information about the number:</string>
 </resources>
