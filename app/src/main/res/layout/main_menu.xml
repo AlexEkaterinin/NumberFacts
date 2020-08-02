@@ -13,42 +13,54 @@
         android:layout_gravity="center"
         android:layout_marginTop="70dp"
         android:fontFamily="@font/dosis"
-        android:textStyle="bold"
-        android:textFontWeight="800"
         android:text="@string/title_main_menu"
         android:textColor="@color/colorPrimary"
         android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnMath"
+        android:id="@+id/btnYear"
         android:layout_width="250dp"
         android:layout_height="60dp"
         android:layout_marginTop="70dp"
-        android:text="@string/button_math_name"
+        android:background="@drawable/custom_btn_main_menu"
+        android:text="@string/button_year_name"
         android:textColor="@color/colorPrimary"
         android:textSize="20sp"
-        android:background="@drawable/custom_btn_main_menu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnTrivia" />
+        app:layout_constraintTop_toBottomOf="@+id/btnDate" />
 
     <Button
         android:id="@+id/btnTrivia"
         android:layout_width="250dp"
         android:layout_height="60dp"
         android:layout_marginTop="100dp"
-        android:text="@string/button_trivia_name"
-        android:textSize="20sp"
-        android:textColor="@color/colorPrimary"
         android:background="@drawable/custom_btn_main_menu"
+        android:text="@string/button_trivia_name"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/btnMath"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/custom_btn_main_menu"
+        android:text="@string/button_math_name"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnTrivia" />
 
     <Button
         android:id="@+id/btnDate"
@@ -62,19 +74,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnMath" />
-
-    <Button
-        android:id="@+id/btnYear"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="70dp"
-        android:text="@string/button_year_name"
-        android:textColor="@color/colorPrimary"
-        android:background="@drawable/custom_btn_main_menu"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnDate" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

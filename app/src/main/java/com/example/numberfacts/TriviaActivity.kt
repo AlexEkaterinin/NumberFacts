@@ -16,8 +16,6 @@ import retrofit2.Response
 class TriviaActivity : AppCompatActivity(), View.OnClickListener {
 
     lateinit var numberInfo: TextView
-    lateinit var currentNum: TextView
-    lateinit var captionNum: TextView
     lateinit var enterNum: EditText
     lateinit var btnSearch: Button
     lateinit var progressBar: ProgressBar
@@ -32,9 +30,7 @@ class TriviaActivity : AppCompatActivity(), View.OnClickListener {
 
         enterNum = findViewById(R.id.enterNum)
         btnSearch = findViewById(R.id.btnSearch)
-        currentNum = findViewById(R.id.current_number)
         progressBar = findViewById(R.id.progressBar)
-        captionNum = findViewById(R.id.caption_of_current_number)
 
         enterNum.addTextChangedListener(object : TextWatcher {
 
@@ -58,7 +54,6 @@ class TriviaActivity : AppCompatActivity(), View.OnClickListener {
         })
 
         progressBar.visibility = View.GONE
-        captionNum.visibility = View.GONE
 
         btnSearch.setOnClickListener(this)
     }
@@ -77,7 +72,6 @@ class TriviaActivity : AppCompatActivity(), View.OnClickListener {
             override fun onResponse(call: Call<NumberNotDate>, response: Response<NumberNotDate>) {
                 if (response.isSuccessful) {
                     viewSearchEnd()
-                    captionNum.visibility = View.VISIBLE
                     setInfo(response.body())
                     Log.d("response", response.body().toString())
                 } else {
@@ -95,7 +89,6 @@ class TriviaActivity : AppCompatActivity(), View.OnClickListener {
 
     fun setInfo(result: NumberNotDate?) {
         numberInfo.text = result?.text
-        currentNum.text = result?.number.toString()
     }
 
     fun viewSearchStart() {
