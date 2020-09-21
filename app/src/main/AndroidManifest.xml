@@ -26,7 +26,7 @@
         <activity android:name=".DateActivity" />
         <activity android:name=".TriviaActivity" />
         <activity android:name=".MathActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".mainMenu.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
