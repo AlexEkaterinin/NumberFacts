@@ -20,7 +20,6 @@ class TriviaActivity : AppCompatActivity(), TriviaContractView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_trivia)
 
-
         presenter.btnState(enterNum.text.isEmpty())
 
         enterNum.addTextChangedListener(object : TextWatcher {
