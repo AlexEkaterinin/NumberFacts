@@ -1,4 +1,4 @@
-package com.example.numberfacts
+package com.example.numberfacts.model
 
 data class NumberNotDate(
     val text: String,
@@ -9,8 +9,8 @@ data class NumberNotDate(
 
 data class DateNumber(
     val text: String,
-    val year: Long,
-    val number: Int,
+    val year: Int,
+    val number: Long,
     val isFound: Boolean,
     val type: String
 )
