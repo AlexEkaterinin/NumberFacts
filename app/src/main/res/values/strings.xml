@@ -9,5 +9,8 @@
     <string name="button_search_text_not_empty_enter">GO</string>
     <string name="hint_trivia_text">Enter your trivial number</string>
     <string name="text_caption_of_current_number">Information about the number:</string>
-    <string name="error_result_server">Cannot get info about this number</string>
+    <string name="error_result_server">Could not get information about the number</string>
+    <string name="saved_facts_nav_btn_text">saved facts</string>
+    <string name="search_facts_nav_btn_text">search facts</string>
+
 </resources>

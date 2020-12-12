@@ -1,7 +1,7 @@
-package com.example.numberfacts.mainMenu
+package com.example.numberfacts.searchCategory
 
 class MainMenuPresenter(
-    private val view: MainMenuContractView
+    private val view: searchCategoryActivity
 ) {
 
     fun clickMainMenuBtn(cls: Class<*>) {

@@ -21,10 +21,9 @@
         <activity android:name=".DateActivity" />
         <activity
             android:name=".triviaScreen.TriviaActivity"
-            android:parentActivityName=".mainMenu.MainActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".MathActivity" />
-        <activity android:name=".mainMenu.MainActivity">
+        <activity android:name=".searchCategory.searchCategoryActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,4 +1,4 @@
-package com.example.numberfacts.mainMenu
+package com.example.numberfacts.searchCategory
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,7 +7,7 @@ import com.example.numberfacts.*
 import com.example.numberfacts.triviaScreen.TriviaActivity
 import kotlinx.android.synthetic.main.main_menu.*
 
-class MainActivity : AppCompatActivity(), MainMenuContractView {
+class searchCategoryActivity : AppCompatActivity(), SearchCategoryContractView {
 
     private val presenter: MainMenuPresenter = MainMenuPresenter(this)
     private val TRIVIA_ACTIVITY_CLASS = TriviaActivity::class.java

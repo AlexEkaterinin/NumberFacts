@@ -22,6 +22,15 @@ class TriviaActivity : AppCompatActivity(), TriviaContractView {
 
         presenter.btnState(enterNum.text.isEmpty())
 
+        toolbar.run {
+            setOnMenuItemClickListener { menu ->
+                if (menu.itemId == R.id.home) {
+                    finish()
+                }
+                true
+            }
+        }
+
         enterNum.addTextChangedListener(object : TextWatcher {
 
             override fun afterTextChanged(s: Editable?) {
