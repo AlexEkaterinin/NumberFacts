@@ -1,7 +1,7 @@
 package com.example.numberfacts.searchCategory
 
 class MainMenuPresenter(
-    private val view: searchCategoryActivity
+    private val view: SearchCategoryFragment
 ) {
 
     fun clickMainMenuBtn(cls: Class<*>) {

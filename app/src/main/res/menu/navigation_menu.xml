@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/saved_facts"
-        android:title="@string/saved_facts_nav_btn_text"
-        android:icon="@drawable/ic_saved_facts"
-        />
-    <item android:id="@+id/numbers_category"
-        android:title="@string/search_facts_nav_btn_text"
+    <item
+        android:id="@+id/numbers_category"
         android:icon="@drawable/ic_search_facts"
-        />
+        android:title="@string/search_facts_nav_btn_text" />
+    <item
+        android:id="@+id/saved_facts"
+        android:icon="@drawable/ic_saved_facts"
+        android:title="@string/saved_facts_nav_btn_text" />
 </menu>

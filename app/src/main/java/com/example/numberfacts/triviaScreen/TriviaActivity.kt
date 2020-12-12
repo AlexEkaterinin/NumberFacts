@@ -23,10 +23,8 @@ class TriviaActivity : AppCompatActivity(), TriviaContractView {
         presenter.btnState(enterNum.text.isEmpty())
 
         toolbar.run {
-            setOnMenuItemClickListener { menu ->
-                if (menu.itemId == R.id.home) {
-                    finish()
-                }
+            setNavigationOnClickListener {
+                finish()
                 true
             }
         }
