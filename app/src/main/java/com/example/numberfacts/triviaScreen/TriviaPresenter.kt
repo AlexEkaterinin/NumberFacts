@@ -2,6 +2,7 @@ package com.example.numberfacts.triviaScreen
 
 import android.util.Log
 import com.example.numberfacts.R
+import com.example.numberfacts.db.entity.TriviaNumberEntity
 import com.example.numberfacts.model.NumbersInfoModel
 import kotlinx.coroutines.*
 import kotlinx.coroutines.async
@@ -17,6 +18,8 @@ class TriviaPresenter(
             view.showProgress(value)
         }
 
+    private var response: TriviaNumberEntity? = null
+
 
     fun btnState(isEmpty: Boolean) {
         view.btnSetText(
@@ -26,6 +29,17 @@ class TriviaPresenter(
                 R.string.button_search_text_not_empty_enter
             }
         )
+    }
+
+
+    fun saveTriviaNumber() {
+
+        GlobalScope.launch {
+            withContext(Dispatchers.IO) {
+                response?.let(model::insertNumberDb)
+            }
+        }
+        view.showSuccessfulSave()
     }
 
     fun getNumberInfo(text: String) {
@@ -38,13 +52,13 @@ class TriviaPresenter(
 
         GlobalScope.launch(exc) {
 
-            val texts = withContext(Dispatchers.IO) {
+            response = withContext(Dispatchers.IO) {
                 model.requestServer(text)
             }
 
             withContext(Dispatchers.Main) {
-                if (texts != null) {
-                    view.setTextInfoAboutNumber(texts)
+                if (response != null) {
+                    view.setTextInfoAboutNumber(response?.text_info.orEmpty())
                 } else {
                     view.showError()
                 }

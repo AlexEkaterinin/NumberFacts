@@ -55,6 +55,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/enterNum" />
 
+    <TextView
+        android:id="@+id/btnSaveIntoDb"
+        android:layout_width="73dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="88dp"
+        android:background="@drawable/custom_btn_main_menu"
+        android:gravity="center"
+        android:hint="@string/btn_save_into_db_text"
+        android:textColorHint="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"

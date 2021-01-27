@@ -3,6 +3,7 @@ package com.example.numberfacts.triviaScreen
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.numberfacts.R
 import com.example.numberfacts.isVisible
@@ -13,7 +14,7 @@ class TriviaActivity : AppCompatActivity(), TriviaContractView {
 
 
     private val presenter: TriviaPresenter by lazy {
-        TriviaPresenter(this, NumbersInfoModel())
+        TriviaPresenter(this, NumbersInfoModel(this))
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +28,10 @@ class TriviaActivity : AppCompatActivity(), TriviaContractView {
                 finish()
                 true
             }
+        }
+
+        btnSaveIntoDb.setOnClickListener {
+            presenter.saveTriviaNumber()
         }
 
         enterNum.addTextChangedListener(object : TextWatcher {
@@ -64,6 +69,14 @@ class TriviaActivity : AppCompatActivity(), TriviaContractView {
     override fun showProgress(isShow: Boolean) {
         btnSearch.isVisible(!isShow)
         progressBar.isVisible(isShow)
+    }
+
+    override fun saveIntoDb() {
+        presenter.saveTriviaNumber()
+    }
+
+    override fun showSuccessfulSave() {
+        Toast.makeText(this, R.string.successful_save_into_db_notification_text, Toast.LENGTH_SHORT).show()
     }
 }
 

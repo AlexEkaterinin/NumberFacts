@@ -12,5 +12,7 @@
     <string name="error_result_server">Could not get information about the number</string>
     <string name="saved_facts_nav_btn_text">saved facts</string>
     <string name="search_facts_nav_btn_text">search facts</string>
+    <string name="btn_save_into_db_text">SAVE</string>
+    <string name="successful_save_into_db_notification_text">Info has been saved</string>
 
 </resources>

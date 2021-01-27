@@ -6,11 +6,11 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "trivia_numbers")
 data class TriviaNumberEntity(
-    @PrimaryKey
-    val uid: Int,
+    @PrimaryKey(autoGenerate = true)
+    val uid: Int = 0,
     @ColumnInfo(name = "text_info")
     val text_info: String?,
     @ColumnInfo(name = "number")
-    val number: Int?
+    val number: Long?
 )
 

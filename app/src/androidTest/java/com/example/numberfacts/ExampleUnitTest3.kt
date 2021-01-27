@@ -1,18 +1,24 @@
 package com.example.numberfacts
 
-import android.content.Context
 import androidx.room.Room
 import com.example.numberfacts.db.TriviaNumbersDao
 import org.junit.Before
+import org.junit.runner.RunWith
+import androidx.test.filters.SmallTest
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.numberfacts.db.NumberDatabase
 import androidx.test.core.app.ApplicationProvider
 import com.example.numberfacts.db.entity.TriviaNumberEntity
+import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Test
+import org.junit.Assert.assertThat
 
 
-class DbTests09 {
+@RunWith(AndroidJUnit4::class)
+@SmallTest
+class DbTests {
     private lateinit var db: NumberDatabase
     private lateinit var triviaDao: TriviaNumbersDao
 
@@ -21,7 +27,7 @@ class DbTests09 {
         db = Room.inMemoryDatabaseBuilder(
             ApplicationProvider.getApplicationContext(),
             NumberDatabase::class.java
-        ).build()
+        ).allowMainThreadQueries().build()
         triviaDao = db.numbersDao()
     }
 

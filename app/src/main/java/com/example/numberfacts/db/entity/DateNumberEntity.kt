@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "date_numbers")
-data class NumberDateEntity(
+data class DateNumberEntity(
     @PrimaryKey
     val uid: Int,
     @ColumnInfo(name = "text_info")

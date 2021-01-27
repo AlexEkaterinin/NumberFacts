@@ -5,4 +5,6 @@ interface TriviaContractView {
     fun btnSetText(text: Int)
     fun showError()
     fun showProgress(isShow: Boolean)
+    fun saveIntoDb()
+    fun showSuccessfulSave()
 }
