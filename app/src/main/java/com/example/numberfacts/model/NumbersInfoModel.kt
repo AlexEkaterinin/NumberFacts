@@ -31,7 +31,7 @@ class NumbersInfoModel(
 
         return TriviaNumberEntity(
             text_info = response?.text,
-            number = response?.number?.toInt()
+            number = response?.number?.toLong()
         )
     }
 
