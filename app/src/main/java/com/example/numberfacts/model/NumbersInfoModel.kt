@@ -39,6 +39,10 @@ class NumbersInfoModel(
         db.triviaNumbersDao().insertNumberInfo(numberInfo)
     }
 
+    fun getAllTriviaNumbers(): List<TriviaNumberEntity> {
+        return db.triviaNumbersDao().getAll()
+    }
+
     companion object {
         const val TRIVIA_PATH = "trivia"
     }
