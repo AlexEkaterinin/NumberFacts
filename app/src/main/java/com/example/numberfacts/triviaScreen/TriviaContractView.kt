@@ -7,4 +7,5 @@ interface TriviaContractView {
     fun showProgress(isShow: Boolean)
     fun saveIntoDb()
     fun showSuccessfulSave()
+    fun showSaveBtn(isShow: Boolean)
 }

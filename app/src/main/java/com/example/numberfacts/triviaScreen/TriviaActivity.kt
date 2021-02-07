@@ -75,6 +75,10 @@ class TriviaActivity : AppCompatActivity(), TriviaContractView {
         presenter.saveTriviaNumber()
     }
 
+    override fun showSaveBtn(isShow: Boolean) {
+        btnSaveIntoDb.isVisible(isShow)
+    }
+
     override fun showSuccessfulSave() {
         Toast.makeText(this, R.string.successful_save_into_db_notification_text, Toast.LENGTH_SHORT).show()
     }

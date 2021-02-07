@@ -59,6 +59,7 @@ class TriviaPresenter(
             withContext(Dispatchers.Main) {
                 if (response != null) {
                     view.setTextInfoAboutNumber(response?.text_info.orEmpty())
+                    view.showSaveBtn(true)
                 } else {
                     view.showError()
                 }
