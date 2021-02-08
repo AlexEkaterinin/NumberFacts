@@ -6,31 +6,42 @@ import com.example.numberfacts.savedFacts.SavedFactsFragment
 import com.example.numberfacts.searchCategory.SearchCategoryFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.main_activity.*
+import ru.terrakok.cicerone.Navigator
+import ru.terrakok.cicerone.android.support.SupportAppNavigator
 
 class MainActivity : AppCompatActivity() {
+
+    private val searchCategoryFragment = SearchCategoryFragment()
+    private val savedFactsFragment = SavedFactsFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
 
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentsContainer, SearchCategoryFragment()).commit()
+        supportFragmentManager
+            .beginTransaction()
+            .add(R.id.fragmentsContainer, searchCategoryFragment)
+            .add(R.id.fragmentsContainer, savedFactsFragment)
+            .commit()
 
         bottomNavigation.setOnNavigationItemSelectedListener(navListener)
+        bottomNavigation.selectedItemId = R.id.numbers_category
     }
 
     private val navListener = BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
         when (menuItem.itemId) {
             R.id.numbers_category -> {
-                val fragment = SearchCategoryFragment()
                 supportFragmentManager.beginTransaction()
-                    .replace(R.id.fragmentsContainer, fragment).commit()
+                    .hide(savedFactsFragment)
+                    .show(searchCategoryFragment)
+                    .commit()
                 true
             }
             R.id.saved_facts -> {
-                val fragment = SavedFactsFragment()
                 supportFragmentManager.beginTransaction()
-                    .replace(R.id.fragmentsContainer, fragment).commit()
+                    .hide(searchCategoryFragment)
+                    .show(savedFactsFragment)
+                    .commit()
                 true
             }
             else -> false

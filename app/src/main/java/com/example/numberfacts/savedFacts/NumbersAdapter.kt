@@ -29,6 +29,7 @@ class NumbersAdapter : RecyclerView.Adapter<NumbersViewHolder>() {
     }
 
     fun setData(list: List<TriviaNumberEntity>) {
+        listNumbers.clear()
         listNumbers.addAll(list)
         notifyDataSetChanged()
     }

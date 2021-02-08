@@ -39,10 +39,16 @@ class SavedFactsFragment : Fragment(), SavedFactsContactView {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        presenter.getNumbersListFromDb()
     }
 
     override fun showNumberList(numberList: List<TriviaNumberEntity>) {
         numberAdapter.setData(numberList)
     }
+
+    override fun onResume() {
+        super.onResume()
+
+        presenter.getNumbersListFromDb()
+    }
+
 }

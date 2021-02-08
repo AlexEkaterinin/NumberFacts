@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.search_category_screen.*
 
 class SearchCategoryFragment : Fragment(), SearchCategoryContractView {
 
-    private val presenter: MainMenuPresenter = MainMenuPresenter(this)
+    private val presenter: SearchCategoryPresenter = SearchCategoryPresenter(this)
     private val TRIVIA_ACTIVITY_CLASS = TriviaActivity::class.java
     private val MATH_ACTIVITY_CLASS = MathActivity::class.java
     private val DATE_ACTIVITY_CLASS = DateActivity::class.java

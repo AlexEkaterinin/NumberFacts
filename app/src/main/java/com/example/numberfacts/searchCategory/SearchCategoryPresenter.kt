@@ -1,6 +1,6 @@
 package com.example.numberfacts.searchCategory
 
-class MainMenuPresenter(
+class SearchCategoryPresenter(
     private val view: SearchCategoryFragment
 ) {
 

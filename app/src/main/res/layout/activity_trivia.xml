@@ -66,6 +66,7 @@
         android:gravity="center"
         android:hint="@string/btn_save_into_db_text"
         android:textColorHint="@color/colorPrimary"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
