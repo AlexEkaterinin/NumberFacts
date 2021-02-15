@@ -5,13 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.numberfacts.R
+import com.example.numberfacts.db.entity.Fact
 import com.example.numberfacts.db.entity.TriviaNumberEntity
 import kotlinx.android.synthetic.main.numbers_item.view.*
 
 
 class NumbersAdapter : RecyclerView.Adapter<NumbersViewHolder>() {
 
-    private val listNumbers: MutableList<Any> = mutableListOf()
+    private val listNumbers: MutableList<Fact> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NumbersViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.numbers_item, parent, false)
@@ -26,7 +27,7 @@ class NumbersAdapter : RecyclerView.Adapter<NumbersViewHolder>() {
         return listNumbers.size
     }
 
-    fun setData(list: List<Any>) {
+    fun setData(list: List<Fact>) {
         listNumbers.clear()
         listNumbers.addAll(list)
         notifyDataSetChanged()

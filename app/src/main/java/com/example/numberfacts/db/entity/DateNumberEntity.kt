@@ -7,11 +7,11 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "date_numbers")
 data class DateNumberEntity(
     @PrimaryKey
-    val uid: Int,
+    override val uid: Int,
     @ColumnInfo(name = "text_info")
-    val text_info: String?,
+    override val text_info: String?,
     @ColumnInfo(name = "number")
-    val number: Int?,
+    override val number: Long?,
     @ColumnInfo(name = "year")
     val year: Int?
-)
+): Fact

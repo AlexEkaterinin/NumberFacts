@@ -7,10 +7,16 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "trivia_numbers")
 data class TriviaNumberEntity(
     @PrimaryKey(autoGenerate = true)
-    val uid: Int = 0,
+    override val uid: Int = 0,
     @ColumnInfo(name = "text_info")
-    val text_info: String?,
+    override val text_info: String?,
     @ColumnInfo(name = "number")
+    override val number: Long?
+): Fact
+
+interface Fact {
     val number: Long?
-)
+    val text_info: String?
+    val uid: Int
+}
 
