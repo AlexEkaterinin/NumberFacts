@@ -1,4 +1,4 @@
-package com.example.numberfacts.savedFacts
+package com.example.numberfacts.saved_facts
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,16 +1,17 @@
 package com.example.numberfacts.model
 
-import android.app.Application
 import android.content.Context
-import android.util.Log
-import androidx.room.Room
 import com.example.numberfacts.ServiceBuilder
 import com.example.numberfacts.api.NumbersApi
 import com.example.numberfacts.db.NumberDatabase
-import com.example.numberfacts.db.TriviaNumbersDao
+import com.example.numberfacts.db.entity.MathNumberEntity
+import com.example.numberfacts.db.entity.NumbersNotDateInfo
 import com.example.numberfacts.db.entity.TriviaNumberEntity
 import retrofit2.Call
-import java.lang.Exception
+import retrofit2.Callback
+import retrofit2.Response
+import kotlin.coroutines.resumeWithException
+import kotlin.coroutines.suspendCoroutine
 
 class NumbersInfoModel(
     context: Context
@@ -20,23 +21,52 @@ class NumbersInfoModel(
 
     val db = NumberDatabase.getInstance(context)
 
-    suspend fun requestServer(text: String): TriviaNumberEntity {
-        val call = if (text.isEmpty()) {
-            request.getRandomNumberNotDate(TRIVIA_PATH)
-        } else {
-            request.getNumberNotDate(text, TRIVIA_PATH)
+    suspend fun getNumberNotDateInfo(number: String, category: String): NumbersNotDateInfo {
+        return suspendCoroutine { continuation ->
+
+            val call = request.getNumberNotDate(number.ifEmpty { RANDOM_PATH }, category)
+
+            call.enqueue(object : Callback<NumberNotDate> {
+
+                override fun onResponse(
+                    call: Call<NumberNotDate>,
+                    response: Response<NumberNotDate>
+                ) {
+                    val answer = response.body() as NumberNotDate
+
+                    continuation.resumeWith(
+                        Result.success(
+                            when (category) {
+                                TRIVIA_PATH -> {
+                                    TriviaNumberEntity(
+                                        textInfo = answer.text,
+                                        number = answer.number
+                                    )
+                                }
+                                else -> {
+                                    MathNumberEntity(
+                                        textInfo = answer.text,
+                                        number = answer.number
+                                    )
+                                }
+                            }
+                        )
+                    )
+                }
+
+                override fun onFailure(call: Call<NumberNotDate>, t: Throwable) {
+                    continuation.resumeWithException(t)
+                }
+            })
         }
-
-        val response = call.execute().body()
-
-        return TriviaNumberEntity(
-            text_info = response?.text,
-            number = response?.number?.toLong()
-        )
     }
 
-    fun insertNumberDb(numberInfo: TriviaNumberEntity) {
-        db.triviaNumbersDao().insertNumberInfo(numberInfo)
+    fun insertTriviaNumberDb(numberInfo: NumbersNotDateInfo) {
+        db.triviaNumbersDao().insertNumberInfo(numberInfo as TriviaNumberEntity)
+    }
+
+    fun insertMathNumberDb(numberInfo: NumbersNotDateInfo) {
+        db.mathNumbersDao().insertNumberInfo(numberInfo as MathNumberEntity)
     }
 
     fun getAllTriviaNumbers(): List<TriviaNumberEntity> {
@@ -44,6 +74,9 @@ class NumbersInfoModel(
     }
 
     companion object {
+        const val RANDOM_PATH = "random"
+
         const val TRIVIA_PATH = "trivia"
+        const val MATH_PATH = "math"
     }
 }

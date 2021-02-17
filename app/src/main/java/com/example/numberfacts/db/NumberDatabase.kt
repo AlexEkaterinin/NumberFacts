@@ -20,6 +20,7 @@ import com.example.numberfacts.db.entity.YearNumberEntity
 )
 abstract class NumberDatabase : RoomDatabase() {
     abstract fun triviaNumbersDao(): TriviaNumbersDao
+    abstract fun mathNumbersDao(): MathNumbersDao
 
     companion object {
         @Volatile

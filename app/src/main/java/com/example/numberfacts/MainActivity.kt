@@ -2,12 +2,10 @@ package com.example.numberfacts
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.numberfacts.savedFacts.SavedFactsFragment
-import com.example.numberfacts.searchCategory.SearchCategoryFragment
+import com.example.numberfacts.saved_facts.SavedFactsFragment
+import com.example.numberfacts.search_category.SearchCategoryFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.main_activity.*
-import ru.terrakok.cicerone.Navigator
-import ru.terrakok.cicerone.android.support.SupportAppNavigator
 
 class MainActivity : AppCompatActivity() {
 

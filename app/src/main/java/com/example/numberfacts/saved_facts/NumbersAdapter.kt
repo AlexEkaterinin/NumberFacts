@@ -1,4 +1,4 @@
-package com.example.numberfacts.savedFacts
+package com.example.numberfacts.saved_facts
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.numberfacts.R
 import com.example.numberfacts.db.entity.TriviaNumberEntity
-import kotlinx.android.synthetic.main.numbers_item.view.*
 
 
 class NumbersAdapter : RecyclerView.Adapter<NumbersViewHolder>() {

@@ -14,4 +14,3 @@ data class DateNumber(
     val isFound: Boolean,
     val type: String
 )
-

@@ -1,4 +1,4 @@
-package com.example.numberfacts.savedFacts
+package com.example.numberfacts.saved_facts
 
 import com.example.numberfacts.model.NumbersInfoModel
 import kotlinx.coroutines.*

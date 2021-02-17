@@ -1,4 +1,4 @@
-package com.example.numberfacts.triviaScreen
+package com.example.numberfacts.trivia_screen
 
 interface TriviaContractView {
     fun setTextInfoAboutNumber(text: String)
