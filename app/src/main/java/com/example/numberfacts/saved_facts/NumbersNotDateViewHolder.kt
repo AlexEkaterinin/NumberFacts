@@ -6,7 +6,7 @@ import com.example.numberfacts.db.entity.NumbersNotDateInfo
 import com.example.numberfacts.db.entity.TriviaNumberEntity
 import kotlinx.android.synthetic.main.numbers_item.view.*
 
-class NumbersViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class NumbersNotDateViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     private var title = itemView.title_number
     private var info = itemView.number_info

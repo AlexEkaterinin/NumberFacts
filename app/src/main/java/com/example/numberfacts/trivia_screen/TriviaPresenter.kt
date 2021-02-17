@@ -30,7 +30,6 @@ class TriviaPresenter(
         )
     }
 
-
     fun saveTriviaNumber() {
 
         GlobalScope.launch {

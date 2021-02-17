@@ -1,7 +1,7 @@
 package com.example.numberfacts.model
 
 import android.content.Context
-import com.example.numberfacts.ServiceBuilder
+import com.example.numberfacts.api.ServiceBuilder
 import com.example.numberfacts.api.NumbersApi
 import com.example.numberfacts.db.NumberDatabase
 import com.example.numberfacts.db.entity.MathNumberEntity
@@ -71,6 +71,10 @@ class NumbersInfoModel(
 
     fun getAllTriviaNumbers(): List<TriviaNumberEntity> {
         return db.triviaNumbersDao().getAll()
+    }
+
+    fun getAllMathNumbers(): List<MathNumberEntity> {
+        return db.mathNumbersDao().getAll()
     }
 
     companion object {
