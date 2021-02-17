@@ -6,6 +6,12 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:fontFamily">@font/dosis</item>
+        <item name="android:actionOverflowButtonStyle">@style/optionsMenuDotsTheme</item>
+    </style>
+
+    <style name="optionsMenuDotsTheme" parent="Widget.AppCompat.Light.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_baseline_arrow_drop_down_24</item>
+
     </style>
 
 </resources>

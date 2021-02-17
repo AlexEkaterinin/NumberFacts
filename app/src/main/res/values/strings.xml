@@ -14,5 +14,7 @@
     <string name="search_facts_nav_btn_text">search facts</string>
     <string name="btn_save_into_db_text">SAVE</string>
     <string name="successful_save_into_db_notification_text">Info has been saved</string>
+    <string name="trivia_list_item_menu">TRIVIA</string>
+    <string name="math_list_item_menu">MATH</string>
 
 </resources>

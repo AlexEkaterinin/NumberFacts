@@ -1,7 +1,9 @@
 package com.example.numberfacts.saved_facts
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -23,26 +25,31 @@ class SavedFactsFragment : Fragment(), SavedFactsContactView {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_saved_facts, container, false)
-    }
+    ): View? =
+        inflater.inflate(R.layout.fragment_saved_facts, container, false)
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean =
+        when (item.itemId) {
+            R.id.trivia_item -> {
+                true
+            }
+            R.id.math_item -> {
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val rvNumbers = rvFacts
 
+        toolbar.inflateMenu(R.menu.category_saved_facts_menu)
+        toolbar.setTitleTextColor(Color.WHITE)
+
         rvNumbers.run {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = numberAdapter
         }
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-    }
-
-    override fun showNumberList(numberList: List<TriviaNumberEntity>) {
-        numberAdapter.setData(numberList)
     }
 
     override fun onResume() {
@@ -51,4 +58,7 @@ class SavedFactsFragment : Fragment(), SavedFactsContactView {
         presenter.getNumbersListFromDb()
     }
 
+    override fun showNumberList(numberList: List<TriviaNumberEntity>) {
+        numberAdapter.setData(numberList)
+    }
 }

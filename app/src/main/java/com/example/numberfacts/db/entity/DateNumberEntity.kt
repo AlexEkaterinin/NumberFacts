@@ -11,7 +11,7 @@ data class DateNumberEntity(
     @ColumnInfo(name = "text_info")
     val text_info: String?,
     @ColumnInfo(name = "number")
-    val number: Int?,
+    val number: Long?,
     @ColumnInfo(name = "year")
     val year: Int?
 )
