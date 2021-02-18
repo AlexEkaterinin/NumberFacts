@@ -44,19 +44,25 @@ class SavedFactsFragment : Fragment(), SavedFactsContactView {
             setOnMenuItemClickListener { menuItem ->
                 when (menuItem.itemId) {
                     R.id.trivia_item -> {
-                        presenter.showNumbersList(TRIVIA_CATEGORY)
+                        CURRENT_CAT = TRIVIA_CATEGORY
+                        presenter.showNumbersList(CURRENT_CAT)
                         true
                     }
                     R.id.math_item -> {
-                        presenter.showNumbersList(MATH_CATEGORY)
+                        CURRENT_CAT = MATH_CATEGORY
+                        presenter.showNumbersList(CURRENT_CAT)
                         true
                     }
                     else -> super.onOptionsItemSelected(menuItem)
                 }
             }
         }
+    }
 
-        presenter.showNumbersList(TRIVIA_CATEGORY)
+    override fun onResume() {
+        super.onResume()
+
+        presenter.showNumbersList(CURRENT_CAT)
     }
 
     override fun showNumberList(numberList: List<NumbersNotDateInfo>) {
@@ -70,5 +76,6 @@ class SavedFactsFragment : Fragment(), SavedFactsContactView {
     companion object {
         const val TRIVIA_CATEGORY = "TRIVIA"
         const val MATH_CATEGORY = "MATH"
+        var CURRENT_CAT: String = "TRIVIA"
     }
 }
