@@ -5,7 +5,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.numberfacts.db.entity.MathNumberEntity
-import com.example.numberfacts.db.entity.TriviaNumberEntity
 
 @Dao
 interface MathNumbersDao {
