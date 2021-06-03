@@ -7,12 +7,14 @@
     <string name="button_year_name">YEAR</string>
     <string name="button_search_text_empty_enter">RANDOM</string>
     <string name="button_search_text_not_empty_enter">GO</string>
-    <string name="hint_trivia_text">Enter your trivial number</string>
+    <string name="hint_not_date_text">Enter your number</string>
     <string name="text_caption_of_current_number">Information about the number:</string>
     <string name="error_result_server">Could not get information about the number</string>
     <string name="saved_facts_nav_btn_text">saved facts</string>
     <string name="search_facts_nav_btn_text">search facts</string>
     <string name="btn_save_into_db_text">SAVE</string>
     <string name="successful_save_into_db_notification_text">Info has been saved</string>
+    <string name="trivia_list_item_menu">TRIVIA</string>
+    <string name="math_list_item_menu">MATH</string>
 
 </resources>

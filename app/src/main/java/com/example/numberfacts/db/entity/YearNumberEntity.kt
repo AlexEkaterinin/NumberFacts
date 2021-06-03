@@ -9,7 +9,7 @@ data class YearNumberEntity(
     @PrimaryKey
     val uid: Int,
     @ColumnInfo(name = "text_info")
-    val text_info: String?,
+    override val textInfo: String?,
     @ColumnInfo(name = "number")
-    val number: Int?
-)
+    override val number: Long?
+): NumbersNotDateInfo

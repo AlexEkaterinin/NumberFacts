@@ -6,10 +6,10 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "math_numbers")
 data class MathNumberEntity(
-    @PrimaryKey
-    val uid: Int,
+    @PrimaryKey(autoGenerate = true)
+    val uid: Int = 0,
     @ColumnInfo(name = "text_info")
-    val text_info: String?,
+    override val textInfo: String?,
     @ColumnInfo(name = "number")
-    val number: Int?
-)
+    override val number: Long?
+) : NumbersNotDateInfo

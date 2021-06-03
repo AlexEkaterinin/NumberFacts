@@ -1,4 +1,4 @@
-package com.example.numberfacts.triviaScreen
+package com.example.numberfacts.math_screen
 
 import android.os.Bundle
 import android.text.Editable
@@ -8,37 +8,36 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.numberfacts.R
 import com.example.numberfacts.isVisible
 import com.example.numberfacts.model.NumbersInfoModel
-import kotlinx.android.synthetic.main.activity_trivia.*
+import kotlinx.android.synthetic.main.activity_math.*
 
-class TriviaActivity : AppCompatActivity(), TriviaContractView {
+class MathActivity : AppCompatActivity(), MathContractView {
 
-
-    private val presenter: TriviaPresenter by lazy {
-        TriviaPresenter(this, NumbersInfoModel(this))
+    private val presenter: MathPresenter by lazy {
+        MathPresenter(this, NumbersInfoModel(this))
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_trivia)
+        setContentView(R.layout.activity_math)
 
-        presenter.btnState(enterNum.text.isEmpty())
+        presenter.btnSearchSetText(enterNum.text.isEmpty())
 
         toolbar.run {
             setNavigationOnClickListener {
-                finish()
+                onBackPressed()
                 true
             }
         }
 
-        btnSaveIntoDb.setOnClickListener {
-            presenter.saveTriviaNumber()
+        btnSaveNumberInfo.setOnClickListener {
+            presenter.saveMathNumber()
         }
 
         enterNum.addTextChangedListener(object : TextWatcher {
 
             override fun afterTextChanged(s: Editable?) {
 
-                presenter.btnState(enterNum.text.isEmpty())
+                presenter.btnSearchSetText(enterNum.text.isEmpty())
 
             }
 
@@ -55,7 +54,7 @@ class TriviaActivity : AppCompatActivity(), TriviaContractView {
     }
 
     override fun setTextInfoAboutNumber(text: String) {
-        triviaInfo.text = text
+        mathInfo.text = text
     }
 
     override fun btnSetText(text: Int) {
@@ -63,28 +62,23 @@ class TriviaActivity : AppCompatActivity(), TriviaContractView {
     }
 
     override fun showError() {
-        triviaInfo.text = getString(R.string.error_result_server)
+        mathInfo.text = getString(R.string.error_result_server)
     }
 
     override fun showProgress(isShow: Boolean) {
         btnSearch.isVisible(!isShow)
-        progressBar.isVisible(isShow)
+        mathProgressBar.isVisible(isShow)
     }
 
-    override fun saveIntoDb() {
-        presenter.saveTriviaNumber()
-    }
-
-    override fun showSaveBtn(isShow: Boolean) {
-        btnSaveIntoDb.isVisible(isShow)
+    override fun saveNumberInfo() {
+        presenter.saveMathNumber()
     }
 
     override fun showSuccessfulSave() {
         Toast.makeText(this, R.string.successful_save_into_db_notification_text, Toast.LENGTH_SHORT).show()
     }
+
+    override fun showSaveBtn(isShow: Boolean) {
+        btnSaveNumberInfo.isVisible(isShow)
+    }
 }
-
-
-
-
-

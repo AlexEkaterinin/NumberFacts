@@ -1,14 +1,13 @@
-package com.example.numberfacts.triviaScreen
+package com.example.numberfacts.math_screen
 
-import android.util.Log
 import com.example.numberfacts.R
-import com.example.numberfacts.db.entity.TriviaNumberEntity
+import com.example.numberfacts.db.entity.NumbersNotDateInfo
 import com.example.numberfacts.model.NumbersInfoModel
+import com.example.numberfacts.model.NumbersInfoModel.Companion.MATH_PATH
 import kotlinx.coroutines.*
-import kotlinx.coroutines.async
 
-class TriviaPresenter(
-    private val view: TriviaContractView,
+class MathPresenter(
+    private val view: MathContractView,
     private val model: NumbersInfoModel
 ) {
 
@@ -18,10 +17,10 @@ class TriviaPresenter(
             view.showProgress(value)
         }
 
-    private var response: TriviaNumberEntity? = null
+    private var response: NumbersNotDateInfo? = null
 
 
-    fun btnState(isEmpty: Boolean) {
+    fun btnSearchSetText(isEmpty: Boolean) {
         view.btnSetText(
             if (isEmpty) {
                 R.string.button_search_text_empty_enter
@@ -32,17 +31,17 @@ class TriviaPresenter(
     }
 
 
-    fun saveTriviaNumber() {
+    fun saveMathNumber() {
 
         GlobalScope.launch {
             withContext(Dispatchers.IO) {
-                response?.let(model::insertNumberDb)
+                response?.let(model::insertMathNumberDb)
             }
         }
         view.showSuccessfulSave()
     }
 
-    fun getNumberInfo(text: String) {
+    fun getNumberInfo(number: String) {
         progress = true
 
         val exc = CoroutineExceptionHandler { _, t ->
@@ -53,12 +52,12 @@ class TriviaPresenter(
         GlobalScope.launch(exc) {
 
             response = withContext(Dispatchers.IO) {
-                model.requestServer(text)
+                model.getNumberNotDateInfo(number, MATH_PATH)
             }
 
             withContext(Dispatchers.Main) {
                 if (response != null) {
-                    view.setTextInfoAboutNumber(response?.text_info.orEmpty())
+                    view.setTextInfoAboutNumber(response?.textInfo.orEmpty())
                     view.showSaveBtn(true)
                 } else {
                     view.showError()

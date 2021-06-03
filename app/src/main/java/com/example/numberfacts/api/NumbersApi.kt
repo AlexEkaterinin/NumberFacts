@@ -14,11 +14,6 @@ interface NumbersApi {
         @Path("type") type: String
     ): Call<NumberNotDate>
 
-    @GET("random/{type}?json")
-    fun getRandomNumberNotDate(
-        @Path("type") type: String
-    ): Call<NumberNotDate>
-
     @GET("{month}/{day}/date?json")
     fun getDateNumber(
         @Path("month") month: String,
