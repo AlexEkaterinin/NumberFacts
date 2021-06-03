@@ -1,4 +1,4 @@
-package com.example.numberfacts.searchCategory
+package com.example.numberfacts.search_category
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.numberfacts.*
-import com.example.numberfacts.triviaScreen.TriviaActivity
+import com.example.numberfacts.math_screen.MathActivity
+import com.example.numberfacts.trivia_screen.TriviaActivity
 import kotlinx.android.synthetic.main.search_category_screen.*
 
 class SearchCategoryFragment : Fragment(), SearchCategoryContractView {

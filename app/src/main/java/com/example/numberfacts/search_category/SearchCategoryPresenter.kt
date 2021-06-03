@@ -1,4 +1,4 @@
-package com.example.numberfacts.searchCategory
+package com.example.numberfacts.search_category
 
 class SearchCategoryPresenter(
     private val view: SearchCategoryFragment

@@ -9,8 +9,8 @@ data class TriviaNumberEntity(
     @PrimaryKey(autoGenerate = true)
     val uid: Int = 0,
     @ColumnInfo(name = "text_info")
-    val text_info: String?,
+    override val textInfo: String?,
     @ColumnInfo(name = "number")
-    val number: Long?
-)
+    override val number: Long?
+) : NumbersNotDateInfo
 
