@@ -9,11 +9,6 @@ import com.example.numberfacts.R
 import com.example.numberfacts.isVisible
 import com.example.numberfacts.model.NumbersInfoModel
 import kotlinx.android.synthetic.main.activity_math.*
-import kotlinx.android.synthetic.main.activity_math.btnSaveIntoDb
-import kotlinx.android.synthetic.main.activity_math.btnSearch
-import kotlinx.android.synthetic.main.activity_math.enterNum
-import kotlinx.android.synthetic.main.activity_math.toolbar
-import kotlinx.android.synthetic.main.activity_trivia.*
 
 class MathActivity : AppCompatActivity(), MathContractView {
 
@@ -25,16 +20,16 @@ class MathActivity : AppCompatActivity(), MathContractView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_math)
 
-        presenter.btnState(enterNum.text.isEmpty())
+        presenter.btnSearchSetText(enterNum.text.isEmpty())
 
         toolbar.run {
             setNavigationOnClickListener {
-                finish()
+                onBackPressed()
                 true
             }
         }
 
-        btnSaveIntoDb.setOnClickListener {
+        btnSaveNumberInfo.setOnClickListener {
             presenter.saveMathNumber()
         }
 
@@ -42,7 +37,7 @@ class MathActivity : AppCompatActivity(), MathContractView {
 
             override fun afterTextChanged(s: Editable?) {
 
-                presenter.btnState(enterNum.text.isEmpty())
+                presenter.btnSearchSetText(enterNum.text.isEmpty())
 
             }
 
@@ -75,7 +70,7 @@ class MathActivity : AppCompatActivity(), MathContractView {
         mathProgressBar.isVisible(isShow)
     }
 
-    override fun saveIntoDb() {
+    override fun saveNumberInfo() {
         presenter.saveMathNumber()
     }
 
@@ -84,6 +79,6 @@ class MathActivity : AppCompatActivity(), MathContractView {
     }
 
     override fun showSaveBtn(isShow: Boolean) {
-        btnSaveIntoDb.isVisible(isShow)
+        btnSaveNumberInfo.isVisible(isShow)
     }
 }

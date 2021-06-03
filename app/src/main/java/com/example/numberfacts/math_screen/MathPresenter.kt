@@ -20,7 +20,7 @@ class MathPresenter(
     private var response: NumbersNotDateInfo? = null
 
 
-    fun btnState(isEmpty: Boolean) {
+    fun btnSearchSetText(isEmpty: Boolean) {
         view.btnSetText(
             if (isEmpty) {
                 R.string.button_search_text_empty_enter

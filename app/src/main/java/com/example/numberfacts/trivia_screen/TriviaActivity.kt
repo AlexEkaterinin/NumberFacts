@@ -21,16 +21,16 @@ class TriviaActivity : AppCompatActivity(), TriviaContractView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_trivia)
 
-        presenter.btnState(enterNum.text.isEmpty())
+        presenter.btnSearchSetText(enterNum.text.isEmpty())
 
         toolbar.run {
             setNavigationOnClickListener {
-                finish()
+                onBackPressed()
                 true
             }
         }
 
-        btnSaveIntoDb.setOnClickListener {
+        btnSaveNumberInfo.setOnClickListener {
             presenter.saveTriviaNumber()
         }
 
@@ -38,7 +38,7 @@ class TriviaActivity : AppCompatActivity(), TriviaContractView {
 
             override fun afterTextChanged(s: Editable?) {
 
-                presenter.btnState(enterNum.text.isEmpty())
+                presenter.btnSearchSetText(enterNum.text.isEmpty())
 
             }
 
@@ -71,12 +71,12 @@ class TriviaActivity : AppCompatActivity(), TriviaContractView {
         triviaProgressBar.isVisible(isShow)
     }
 
-    override fun saveIntoDb() {
+    override fun saveNumberInfo() {
         presenter.saveTriviaNumber()
     }
 
     override fun showSaveBtn(isShow: Boolean) {
-        btnSaveIntoDb.isVisible(isShow)
+        btnSaveNumberInfo.isVisible(isShow)
     }
 
     override fun showSuccessfulSave() {
