@@ -1,4 +1,4 @@
-package com.example.numberfacts
+package com.example.numberfacts.api
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

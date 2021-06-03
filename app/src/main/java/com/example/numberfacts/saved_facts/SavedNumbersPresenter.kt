@@ -1,6 +1,8 @@
 package com.example.numberfacts.saved_facts
 
 import com.example.numberfacts.model.NumbersInfoModel
+import com.example.numberfacts.saved_facts.SavedFactsFragment.Companion.MATH_CATEGORY
+import com.example.numberfacts.saved_facts.SavedFactsFragment.Companion.TRIVIA_CATEGORY
 import kotlinx.coroutines.*
 
 class SavedNumbersPresenter(
@@ -10,20 +12,25 @@ class SavedNumbersPresenter(
 
     private val coroutineScope = CoroutineScope(Job())
 
-    fun getNumbersListFromDb() {
+    fun showNumbersList(category: String) {
+
         coroutineScope.launch {
             val list = withContext(Dispatchers.IO) {
-                model.getAllTriviaNumbers()
+                when (category) {
+                    TRIVIA_CATEGORY -> model.getAllTriviaNumbers()
+                    MATH_CATEGORY -> model.getAllMathNumbers()
+                    else -> listOf()
+                }
             }
 
             withContext(Dispatchers.Main) {
+                view.titleSetText(category)
                 view.showNumberList(list)
             }
         }
-
     }
 
-    fun dispose(){
+    fun dispose() {
         coroutineScope.cancel()
     }
 }

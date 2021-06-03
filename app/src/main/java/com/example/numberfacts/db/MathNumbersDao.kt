@@ -31,6 +31,4 @@ interface MathNumbersDao {
 
     @Query("DELETE FROM math_numbers")
     fun deleteAll()
-
-
 }

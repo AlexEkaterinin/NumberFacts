@@ -1,15 +1,11 @@
 package com.example.numberfacts.saved_facts
 
-import android.graphics.Color
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.numberfacts.R
-import com.example.numberfacts.db.entity.TriviaNumberEntity
+import com.example.numberfacts.db.entity.NumbersNotDateInfo
 import com.example.numberfacts.model.NumbersInfoModel
 import kotlinx.android.synthetic.main.fragment_saved_facts.*
 
@@ -28,37 +24,58 @@ class SavedFactsFragment : Fragment(), SavedFactsContactView {
     ): View? =
         inflater.inflate(R.layout.fragment_saved_facts, container, false)
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean =
-        when (item.itemId) {
-            R.id.trivia_item -> {
-                true
-            }
-            R.id.math_item -> {
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.category_saved_facts_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val rvNumbers = rvFacts
 
-        toolbar.inflateMenu(R.menu.category_saved_facts_menu)
-        toolbar.setTitleTextColor(Color.WHITE)
-
         rvNumbers.run {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = numberAdapter
+        }
+
+        toolbar.run {
+            inflateMenu(R.menu.category_saved_facts_menu)
+
+            setOnMenuItemClickListener { menuItem ->
+                when (menuItem.itemId) {
+                    R.id.trivia_item -> {
+                        CURRENT_CAT = TRIVIA_CATEGORY
+                        presenter.showNumbersList(CURRENT_CAT)
+                        true
+                    }
+                    R.id.math_item -> {
+                        CURRENT_CAT = MATH_CATEGORY
+                        presenter.showNumbersList(CURRENT_CAT)
+                        true
+                    }
+                    else -> super.onOptionsItemSelected(menuItem)
+                }
+            }
         }
     }
 
     override fun onResume() {
         super.onResume()
 
-        presenter.getNumbersListFromDb()
+        presenter.showNumbersList(CURRENT_CAT)
     }
 
-    override fun showNumberList(numberList: List<TriviaNumberEntity>) {
+    override fun showNumberList(numberList: List<NumbersNotDateInfo>) {
         numberAdapter.setData(numberList)
+    }
+
+    override fun titleSetText(text: String) {
+        toolbar_title_text.text = text
+    }
+
+    companion object {
+        const val TRIVIA_CATEGORY = "TRIVIA"
+        const val MATH_CATEGORY = "MATH"
+        var CURRENT_CAT: String = "TRIVIA"
     }
 }
